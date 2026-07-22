@@ -1,0 +1,543 @@
+<title>夸父追日240km跨夜接力賽 — 路線與行前資訊</title>
+<style>
+  :root {
+    --paper: #faf5ec;
+    --paper-raise: #fffdf8;
+    --ink: #241d14;
+    --ink-soft: #6b6152;
+    --line: #e4d9c4;
+    --sun: #e08423;
+    --night: #383b7c;
+    --dawn: #e8a94a;
+    --warn: #b23a2e;
+    --ok: #4b7b63;
+    --pending: #b8862e;
+    --shadow: 0 1px 2px rgba(36, 29, 20, 0.06), 0 8px 24px rgba(36, 29, 20, 0.05);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14141c;
+      --paper-raise: #1c1c28;
+      --ink: #f1ece0;
+      --ink-soft: #a29c8c;
+      --line: #33313f;
+      --sun: #f0a23d;
+      --night: #6e74d6;
+      --dawn: #f2b65e;
+      --warn: #e2685a;
+      --ok: #6fae8c;
+      --pending: #e0ac55;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 30px rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14141c; --paper-raise: #1c1c28; --ink: #f1ece0; --ink-soft: #a29c8c;
+    --line: #33313f; --sun: #f0a23d; --night: #6e74d6; --dawn: #f2b65e;
+    --warn: #e2685a; --ok: #6fae8c; --pending: #e0ac55;
+   
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 30px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --paper: #faf5ec; --paper-raise: #fffdf8; --ink: #241d14; --ink-soft: #6b6152;
+    --line: #e4d9c4; --sun: #e08423; --night: #383b7c; --dawn: #e8a94a;
+    --warn: #b23a2e; --ok: #4b7b63; --pending: #b8862e;
+   
+    --shadow: 0 1px 2px rgba(36, 29, 20, 0.06), 0 8px 24px rgba(36, 29, 20, 0.05);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei",
+      "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  a { color: inherit; }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 80px; }
+
+  .topnav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    max-width: 960px; margin: 0 auto; padding: 10px 20px;
+    display: flex; gap: 18px; overflow-x: auto;
+    font-size: 0.82rem; color: var(--ink-soft); white-space: nowrap;
+  }
+  .topnav-inner a { text-decoration: none; padding: 4px 2px; border-bottom: 2px solid transparent; }
+  .topnav-inner a:hover, .topnav-inner a:focus-visible { color: var(--ink); border-bottom-color: var(--sun); }
+
+  .hero { padding: 40px 0 8px; }
+  .eyebrow { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink-soft); text-transform: uppercase; }
+  h1 { font-size: clamp(1.7rem, 4.4vw, 2.5rem); line-height: 1.15; margin: 0.35em 0 0.2em; text-wrap: balance; letter-spacing: -0.01em; }
+  .hero-sub { color: var(--ink-soft); font-size: 1rem; margin: 0 0 14px; }
+  .hero-sub strong { color: var(--ink); font-weight: 600; }
+
+  .team-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+  .team-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 999px; padding: 6px 14px 6px 10px;
+    font-size: 0.86rem; font-weight: 600; border: 1px solid var(--line);
+    background: var(--paper-raise);
+  }
+  .team-badge .swatch { width: 10px; height: 10px; border-radius: 50%; }
+  .team-badge.a .swatch { background: var(--sun); }
+  .team-badge.b .swatch { background: var(--night); }
+  .team-badge .car-tag { color: var(--ink-soft); font-weight: 400; }
+
+  .stat-strip {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden;
+  }
+  .stat { background: var(--paper-raise); padding: 14px 16px; }
+  .stat .n { font-size: 1.4rem; font-weight: 700; color: var(--sun); }
+  .stat .l { font-size: 0.74rem; color: var(--ink-soft); margin-top: 2px; }
+
+  section { padding-top: 52px; scroll-margin-top: 64px; }
+  h2 { font-size: 1.3rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .section-note { color: var(--ink-soft); font-size: 0.88rem; margin: 0 0 20px; max-width: 62ch; }
+
+  .route-card {
+    background: var(--paper-raise); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: var(--shadow); padding: 18px 18px 8px;
+  }
+  .route-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; flex-wrap: wrap; }
+  .route-toolbar .caption { font-size: 0.78rem; color: var(--ink-soft); }
+  .play-btn {
+    display: inline-flex; align-items: center; gap: 6px; background: transparent;
+    border: 1px solid var(--line); color: var(--ink); border-radius: 999px;
+    padding: 6px 14px; font-size: 0.82rem; cursor: pointer; font-family: inherit;
+  }
+  .play-btn:hover { border-color: var(--sun); }
+  .play-btn:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+  .play-btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+
+  .route-svg-wrap { width: 100%; aspect-ratio: 1920 / 700; }
+  .route-svg-wrap svg { width: 100%; height: 100%; display: block; }
+
+  .wp-label { font-size: 22px; fill: var(--ink); font-family: -apple-system, "PingFang TC", sans-serif; font-weight: 600; }
+  .wp-sub { font-size: 17px; fill: var(--ink-soft); font-family: -apple-system, "PingFang TC", sans-serif; }
+  .wp-km { font-size: 15px; fill: var(--ink-soft); font-family: ui-monospace, monospace; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 10px 4px 16px; font-size: 0.78rem; color: var(--ink-soft); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+
+  .car-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .car-card { background: var(--paper-raise); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; border-top: 3px solid var(--team-color, var(--sun)); }
+  .car-card.b { --team-color: var(--night); }
+  .car-card.a { --team-color: var(--sun); }
+  .car-card h3 { margin: 0 0 2px; font-size: 1rem; }
+  .car-card .team-name { display: block; font-size: 0.78rem; color: var(--team-color, var(--ink-soft)); font-weight: 600; margin-bottom: 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px; font-size: 0.8rem; }
+  .driver-note {
+    margin-top: 16px; border: 1px dashed var(--sun); border-radius: 12px; padding: 12px 16px;
+    font-size: 0.86rem; color: var(--ink-soft); display: flex; gap: 10px;
+  }
+  .driver-note strong { color: var(--ink); }
+
+  .roster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .roster-col { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 16px; background: var(--paper-raise); }
+  .roster-col.pending { border-style: dashed; border-color: var(--pending); }
+  .roster-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .roster-head h3 { margin: 0; font-size: 0.92rem; }
+  .count-badge { font-size: 0.72rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--line); color: var(--ink); }
+  .roster-col.pending .count-badge { background: var(--pending); color: #fff; }
+  .roster-col ul { margin: 0; padding-left: 1.1em; font-size: 0.88rem; }
+  .roster-col li { margin: 3px 0; }
+
+  .lodge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .lodge-card { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--paper-raise); }
+  .lodge-card h3 { margin: 0 0 6px; font-size: 1rem; }
+  .status-pill { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .status-pill.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+  .status-pill.pending { background: color-mix(in srgb, var(--pending) 20%, transparent); color: var(--pending); }
+  .lodge-card .row { margin: 3px 0; font-size: 0.86rem; }
+  .lodge-card dt { color: var(--ink-soft); display: inline; }
+  .lodge-card dd { display: inline; margin: 0; }
+  .lodge-card .estimate-note { margin-top: 10px; font-size: 0.78rem; color: var(--pending); }
+
+  .notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .notes-col h3 { font-size: 0.95rem; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .notes-col.safety h3 { color: var(--warn); border-bottom-color: var(--warn); }
+  .notes-col ul { list-style: none; margin: 0; padding: 0; }
+  .notes-col li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
+  .notes-col li:last-child { border-bottom: none; }
+  .icon-chip {
+    flex: none; width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--line); color: var(--ink-soft);
+  }
+  .notes-col.safety .icon-chip { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+  .icon-chip svg { width: 16px; height: 16px; }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.8rem; }
+  footer a { color: var(--sun); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ic-cal" viewBox="0 0 22 22"><rect x="3" y="4" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="3" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.6"/><line x1="7" y1="2" x2="7" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="15" y1="2" x2="15" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 14l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 22 22"><circle cx="11" cy="13" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="11" y1="13" x2="11" y2="9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="11" y1="13" x2="14" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="2" x2="13" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-pin" viewBox="0 0 22 22"><path d="M11 21s7-7.8 7-12.5A7 7 0 004 8.5C4 13.2 11 21 11 21z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="11" cy="8.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="ic-cone" viewBox="0 0 22 22"><path d="M11 3l6.5 16h-13L11 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><line x1="8" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.6"/><line x1="6.6" y1="17" x2="15.4" y2="17" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 22 22"><path d="M3 5h16v10H9l-4.5 4V15H3V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8" cy="10" r="0.9" fill="currentColor"/><circle cx="11" cy="10" r="0.9" fill="currentColor"/><circle cx="14" cy="10" r="0.9" fill="currentColor"/></symbol>
+    <symbol id="ic-lamp" viewBox="0 0 22 22"><circle cx="11" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20a7 8.5 0 0113 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="11" y1="1.5" x2="11" y2="3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="4.5" y1="8" x2="2.5" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="17.5" y1="8" x2="19.5" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-drop" viewBox="0 0 22 22"><path d="M11 2s6.5 8 6.5 12.2A6.5 6.5 0 014.5 14.2C4.5 10 11 2 11 2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-heat" viewBox="0 0 22 22"><circle cx="11" cy="11" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="11" y1="1.5" x2="11" y2="3.8"/><line x1="11" y1="18.2" x2="11" y2="20.5"/><line x1="1.5" y1="11" x2="3.8" y2="11"/><line x1="18.2" y1="11" x2="20.5" y2="11"/><line x1="4.6" y1="4.6" x2="6.2" y2="6.2"/><line x1="15.8" y1="15.8" x2="17.4" y2="17.4"/><line x1="4.6" y1="17.4" x2="6.2" y2="15.8"/><line x1="15.8" y1="6.2" x2="17.4" y2="4.6"/></g></symbol>
+    <symbol id="ic-moon" viewBox="0 0 22 22"><path d="M16.5 12.5A7.5 7.5 0 119.5 3a6 6 0 007 9.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-bandage" viewBox="0 0 22 22"><rect x="3" y="8.5" width="16" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-30 11 11)"/><circle cx="7.3" cy="13.7" r="0.8" fill="currentColor"/><circle cx="14.7" cy="8.3" r="0.8" fill="currentColor"/></symbol>
+    <symbol id="ic-cross" viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="11" y1="7" x2="11" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="7" y1="11" x2="15" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-car" viewBox="0 0 22 22"><path d="M4 14v-3l2-4h10l2 4v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><rect x="2.5" y="14" width="17" height="3" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.5" cy="17.3" r="1.3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="17.3" r="1.3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 22 22"><path d="M11 2.5l7 2.8v5.4c0 5-3.3 8-7 9-3.7-1-7-4-7-9V5.3l7-2.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-id" viewBox="0 0 22 22"><rect x="2.5" y="5" width="17" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="13" x2="17" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-bed" viewBox="0 0 22 22"><path d="M2 16v-4a2 2 0 012-2h5a2 2 0 012 2v1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M13 13v-1a2 2 0 012-2h3a2 2 0 012 2v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="2" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="1.6"/><line x1="2" y1="16" x2="2" y2="19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="20" y1="16" x2="20" y2="19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-run" viewBox="0 0 22 22"><circle cx="13" cy="4.5" r="1.8" fill="currentColor"/><path d="M6 20l3-5 2-2.5-1-4-4 2M11 13l3 1 2 4M9 13l4-4 3 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-swap" viewBox="0 0 22 22"><path d="M4 8h12M16 8l-3-3M16 8l-3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14H6M6 14l3 3M6 14l3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="#route">路線</a>
+    <a href="#legs">棒次</a>
+    <a href="#cars">車輛</a>
+    <a href="#roster">賽後動線</a>
+    <a href="#lodging">住宿</a>
+    <a href="#notes">注意 / 安全</a>
+    <a href="#next">下一步</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">2026 CRUFU RUN 西臺灣站 · 快點行銷</div>
+    <h1>夸父追日 240km 跨夜接力賽</h1>
+    <p class="hero-sub">
+      2026/09/19（六）～09/20（日）｜苗栗三義外環道停車場出發｜終點 台南林默娘公園
+    </p>
+    <div class="team-badges">
+      <span class="team-badge a"><span class="swatch"></span>軟腳蝦戰隊 <span class="car-tag">A隊・1車／2車</span></span>
+      <span class="team-badge b"><span class="swatch"></span>軟腿豹戰隊 <span class="car-tag">B隊・1車／2車</span></span>
+    </div>
+    <div class="stat-strip mono" id="statStrip">
+      <div class="stat"><div class="n"><span class="count" data-target="249.168" data-decimals="3">0</span>km</div><div class="l">總距離</div></div>
+      <div class="stat"><div class="n">+<span class="count" data-target="1077">0</span> / −<span class="count" data-target="1454">0</span>m</div><div class="l">總爬升</div></div>
+      <div class="stat"><div class="n"><span class="count" data-target="28">0</span>hr</div><div class="l">關門時間</div></div>
+      <div class="stat"><div class="n"><span class="count" data-target="21">0</span>人</div><div class="l">總參與人數</div></div>
+      <div class="stat"><div class="n"><span class="count" data-target="4">0</span>台</div><div class="l">支援車輛</div></div>
+    </div>
+  </div>
+
+  <section id="route">
+    <h2>路線示意圖</h2>
+    <p class="section-note">
+      橫式路線示意（僅線條，非精確地理比例）。夜間路段（約17:00～隔日07:00，實際依起跑時間調整）強制配戴頭燈、尾燈與反光背心。確切路線以官方報名手冊為準。
+    </p>
+    <div class="route-card">
+      <div class="route-toolbar">
+        <span class="caption">追日進度・苗栗三義 → 台南林默娘公園</span>
+        <button class="play-btn" id="playBtn" aria-pressed="false">
+          <span class="dot"></span><span id="playLabel">播放動畫</span>
+        </button>
+      </div>
+      <div class="route-svg-wrap">
+        <svg id="routeSvg" viewBox="0 0 1920 700" role="img" aria-label="苗栗三義到台南林默娘公園的西部賽道路線示意線圖，含夜間路段標示">
+          <defs>
+            <linearGradient id="dayNight" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="var(--dawn)"/>
+              <stop offset="18%"  stop-color="var(--dawn)"/>
+              <stop offset="30%"  stop-color="var(--night)"/>
+              <stop offset="70%"  stop-color="var(--night)"/>
+              <stop offset="86%"  stop-color="var(--dawn)"/>
+              <stop offset="100%" stop-color="var(--sun)"/>
+            </linearGradient>
+          </defs>
+
+          <!-- highlighted race corridor -->
+          <path id="routePath" d="M300,430 C550,370 750,300 950,340 C1150,380 1400,300 1600,460"
+                fill="none" stroke="url(#dayNight)" stroke-width="9" stroke-linecap="round"/>
+
+          <!-- start cluster -->
+          <circle cx="300" cy="430" r="10" fill="var(--dawn)"/>
+          <text x="300" y="375" class="wp-label" text-anchor="middle">起點：苗栗三義</text>
+          <text x="300" y="400" class="wp-sub" text-anchor="middle">西湖渡假村・三義火車站・西湖老街・鯉魚潭</text>
+          <text x="300" y="475" class="wp-km" text-anchor="middle">0 km</text>
+
+          <!-- 彰化 -->
+          <circle cx="950" cy="340" r="8" fill="var(--paper-raise)" stroke="var(--ink-soft)" stroke-width="2.5"/>
+          <text x="950" y="285" class="wp-label" text-anchor="middle">彰化</text>
+          <text x="950" y="385" class="wp-km" text-anchor="middle">中繼站</text>
+
+          <!-- 台南 finish -->
+          <circle cx="1600" cy="460" r="10" fill="var(--sun)"/>
+          <text x="1600" y="405" class="wp-label" text-anchor="middle">終點：台南</text>
+          <text x="1600" y="429" class="wp-sub" text-anchor="middle">林默娘公園</text>
+          <text x="1600" y="505" class="wp-km" text-anchor="middle">249.168 km</text>
+
+          <!-- traveling sun marker -->
+          <circle r="14" fill="var(--sun)">
+            <animateMotion id="sunMotion" dur="10s" repeatCount="indefinite">
+              <mpath href="#routePath"/>
+            </animateMotion>
+          </circle>
+        </svg>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--dawn)"></i>日間路段</span>
+        <span><i style="background:var(--night)"></i>夜間路段（強制照明／反光裝備）</span>
+        <span><i style="background:var(--sun)"></i>追日進度（自動循環播放）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="legs">
+    <h2>棒次資訊</h2>
+    <p class="section-note">
+      查證過官網、主辦公司「思迪運動」官方新聞稿、Facebook 等管道，<strong>目前沒有任何一屆（含 2025 年第6屆）公開發布過逐棒次的個別距離／爬升明細表</strong>，因此這裡先不放編造或推估的數字，避免誤導配速與交接安排。
+    </p>
+    <div class="lodge-card" style="max-width:640px">
+      <h3 style="margin-top:0">目前唯一可確認的官方資訊</h3>
+      <ul style="margin:6px 0 0; padding-left:1.2em; font-size:0.9rem;">
+        <li>10人接力挑戰組：每人跑 3 棒，全隊共 30 棒，每棒平均約 7 公里</li>
+        <li>逐棒次詳細距離與爬升，官方僅會於<strong>報名完成後的紙本／電子選手手冊</strong>中提供</li>
+      </ul>
+      <div class="estimate-note" style="margin-top:12px">
+        若需提前確認，可直接聯繫主辦：crufurun@sports-sti.com ／ 02-8912-1899。拿到官方選手手冊後，我再把逐棒次資料補進這份文件。
+      </div>
+    </div>
+  </section>
+
+  <section id="cars">
+    <h2>支援車輛分組</h2>
+    <p class="section-note">共租 4 台：2 台 GRANVIA 台北來回、2 台 Alphard 賽後在台南高鐵站還車。以下為賽事支援車編組（與還車路線是不同的分法）。</p>
+    <div class="car-grid">
+      <div class="car-card a">
+        <span class="team-name">軟腳蝦戰隊 · A隊</span>
+        <h3>1 車</h3>
+        <div class="chips">
+          <span class="chip">國堯 Eric</span><span class="chip">Chris</span><span class="chip">Steven</span>
+          <span class="chip">Jayson</span><span class="chip">李書緯</span>
+        </div>
+      </div>
+      <div class="car-card a">
+        <span class="team-name">軟腳蝦戰隊 · A隊</span>
+        <h3>2 車</h3>
+        <div class="chips">
+          <span class="chip">Reese</span><span class="chip">Hiram</span><span class="chip">Jenny</span>
+          <span class="chip">許佑 YOU</span><span class="chip">Rich</span>
+        </div>
+      </div>
+      <div class="car-card b">
+        <span class="team-name">軟腿豹戰隊 · B隊</span>
+        <h3>1 車</h3>
+        <div class="chips">
+          <span class="chip">浩（鴻霖之友）</span><span class="chip">林正華 Nicky</span><span class="chip">Nate Yao</span>
+          <span class="chip">Matt</span><span class="chip">林建宇 Jack</span>
+        </div>
+      </div>
+      <div class="car-card b">
+        <span class="team-name">軟腿豹戰隊 · B隊</span>
+        <h3>2 車</h3>
+        <div class="chips">
+          <span class="chip">侑真 Jane</span><span class="chip">大漢 Danny</span><span class="chip">鴻霖</span>
+          <span class="chip">Simon</span><span class="chip">Peggie</span>
+        </div>
+      </div>
+    </div>
+    <div class="driver-note">
+      <strong>專屬司機：小威</strong>
+      <span>機動支援 4 台車、不固定跟車，車費不需分攤；賽後隨留台南過夜組，並接續後續代辦事項。</span>
+    </div>
+  </section>
+
+  <section id="roster">
+    <h2>賽後動線</h2>
+    <p class="section-note">與上方車隊編組是分開的分法（打散），決定台南住宿人數與還車時間。</p>
+    <div class="roster-grid">
+      <div class="roster-col">
+        <div class="roster-head"><h3>留台南過夜</h3><span class="count-badge">13 人</span></div>
+        <ul>
+          <li>侑真 Jane</li><li>Nate Yao</li><li>林建宇 Jack</li><li>大漢 Danny</li><li>Hiram</li>
+          <li>Steven</li><li>Simon</li><li>國堯 Eric</li><li>Peggie</li><li>小威（司機）</li>
+          <li>林正華 Nicky</li><li>浩（鴻霖之友）</li><li>鴻霖</li>
+        </ul>
+      </div>
+      <div class="roster-col">
+        <div class="roster-head"><h3>當天回程</h3><span class="count-badge">8 人</span></div>
+        <ul>
+          <li>Jayson</li><li>Chris</li><li>許佑 YOU</li><li>Rich</li>
+          <li>Matt</li><li>李書緯</li><li>Jenny</li><li>Reese</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="lodging">
+    <h2>住宿與車資</h2>
+    <div class="lodge-grid">
+      <div class="lodge-card">
+        <span class="status-pill ok">已訂</span>
+        <h3>台中福華大飯店（起點住宿）</h3>
+        <div class="row"><dt>房型：</dt><dd>四人房</dd></div>
+        <div class="row mono"><dt>費用：</dt><dd>約 NT$1,200 / 人</dd></div>
+        <div class="row mono"><dt>人數：</dt><dd>已訂全數 21 人房間</dd></div>
+      </div>
+      <div class="lodge-card">
+        <span class="status-pill pending">待訂</span>
+        <h3>台南住宿（留台南過夜組）</h3>
+        <div class="row mono"><dt>人數：</dt><dd>13 人</dd></div>
+        <div class="row"><dt>備註：</dt><dd>另找時間預訂</dd></div>
+      </div>
+      <div class="lodge-card">
+        <span class="status-pill pending">待確認</span>
+        <h3>車資</h3>
+        <div class="row mono"><dt>租車已確認：</dt><dd>2 台 GRANVIA 台北來回、2 台 Alphard 台南高鐵站還車</dd></div>
+        <div class="estimate-note">實際金額待確認，先前抓的「直接回台北約$5,000–6,000/台、留一天約$8,000–9,000/台」是否仍適用於新的還車安排，待與Danny核對後更新。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <h2>注意事項 ／ 安全準備</h2>
+    <div class="notes-grid">
+      <div class="notes-col">
+        <h3>注意事項</h3>
+        <ul>
+          <li><span class="icon-chip"><svg><use href="#ic-clock"/></svg></span><span>28 小時關門，扣除跨夜時段，建議每棒抓 10–15 分鐘緩衝，避免壓線交接。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-pin"/></svg></span><span>把所有交接點座標整理進共用地圖，支援車提前導航卡位等候下一棒。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-cone"/></svg></span><span>起終點及部分路段賽事期間可能交通管制，支援車移動需預留改道時間。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-chat"/></svg></span><span>建立賽事專用聯絡群組（4 車 + 全體跑者），公告緊急聯絡窗口。</span></li>
+        </ul>
+      </div>
+      <div class="notes-col safety">
+        <h3>安全準備事項</h3>
+        <ul>
+          <li><span class="icon-chip"><svg><use href="#ic-lamp"/></svg></span><span>夜間強制：頭燈、尾燈、反光背心，備用電池／行動電源必帶。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-drop"/></svg></span><span>每人自備水壺與電解質補給，支援車多備額外飲水以防補給站不足。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-heat"/></svg></span><span>9 月中南部仍偏熱且近颱風季尾聲，注意防曬中暑，關注賽事週天氣動態。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-moon"/></svg></span><span>非跑步棒次隊員在車上輪流補眠，避免過度疲勞影響下一棒或行車安全。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-bandage"/></svg></span><span>準備水泡貼、肌貼、跌打藥品；鞋款選擇已磨合過的跑鞋。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-cross"/></svg></span><span>每台車備基本醫療包，並掌握沿線最近醫院位置。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-car"/></svg></span><span>接應停靠務必開雙黃燈、停於安全路肩；司機（尤其小威）需輪流補眠，避免疲勞駕駛。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-shield"/></svg></span><span>確認賽事是否含運動平安保險，無則團隊自行加保短期意外險。</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-id"/></svg></span><span>每位跑者身上放置緊急聯絡卡（姓名、血型、緊急聯絡人、過敏藥物史）。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <h2>下一步</h2>
+    <p class="section-note">您列的 4 項待辦，加上幾個建議一併排入時程。</p>
+    <div class="notes-grid">
+      <div class="notes-col">
+        <h3>已列項目</h3>
+        <ul>
+          <li><span class="icon-chip"><svg><use href="#ic-bed"/></svg></span><span>預訂台南飯店（留台南過夜 13 人）</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-chat"/></svg></span><span>團隊行前會</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-swap"/></svg></span><span>更換隊伍或棒次（如有調整）</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-run"/></svg></span><span>自主訓練開始</span></li>
+        </ul>
+      </div>
+      <div class="notes-col">
+        <h3>建議一併排入</h3>
+        <ul>
+          <li><span class="icon-chip"><svg><use href="#ic-shield"/></svg></span><span>確認賽事本身是否含保險，視需要加保短期意外險</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-id"/></svg></span><span>收集每位隊員緊急聯絡卡資訊（血型、過敏史、緊急聯絡人）</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-chat"/></svg></span><span>建立賽事專用聯絡群組（4 車＋全體跑者）</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-drop"/></svg></span><span>補給品採購清單（電解質、能量膠、水）</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-car"/></svg></span><span>租車正式簽約與押金確認</span></li>
+          <li><span class="icon-chip"><svg><use href="#ic-heat"/></svg></span><span>賽事週天氣／颱風動態追蹤與應變</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    最後更新 2026/07/16 · 台南住宿確定後將更新此頁；車資待確認新還車安排下的實際金額。
+    路線與棒次資料整理自歷屆西臺灣站紀錄，2026 第 7 屆確切內容請以
+    <a href="https://www.focusline.com.tw/260919KN" target="_blank" rel="noopener">官方報名手冊</a> 為準。
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var svg = document.getElementById('routeSvg');
+    var btn = document.getElementById('playBtn');
+    var label = document.getElementById('playLabel');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var playing = !reduce;
+
+    function applyState() {
+      if (playing) {
+        svg.unpauseAnimations && svg.unpauseAnimations();
+        label.textContent = '暫停動畫';
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        svg.pauseAnimations && svg.pauseAnimations();
+        label.textContent = '播放動畫';
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    }
+    if (reduce) { playing = false; }
+    applyState();
+    btn.addEventListener('click', function () { playing = !playing; applyState(); });
+  })();
+
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var counters = Array.prototype.slice.call(document.querySelectorAll('.count'));
+    var done = false;
+
+    function run() {
+      if (done) return;
+      done = true;
+      counters.forEach(function (el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        if (reduce) { el.textContent = target.toFixed(decimals); return; }
+        var start = null;
+        var duration = 1200;
+        function step(ts) {
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * eased).toFixed(decimals);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    var strip = document.getElementById('statStrip');
+    if ('IntersectionObserver' in window && strip) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { run(); io.disconnect(); } });
+      }, { threshold: 0.3 });
+      io.observe(strip);
+    } else {
+      run();
+    }
+  })();
+</script>
