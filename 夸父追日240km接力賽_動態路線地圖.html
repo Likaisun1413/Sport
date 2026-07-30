@@ -268,7 +268,7 @@
         </button>
       </div>
       <div class="route-svg-wrap">
-        <svg id="routeSvg" viewBox="0 0 1920 700" role="img" aria-label="苗栗三義到台南林默娘公園的西部賽道路線示意線圖，含夜間路段標示">
+        <svg id="routeSvg" viewBox="0 0 1920 700" role="img" aria-label="依30個接力區官方GPS座標投影繪製的苗栗三義到台南觀夕平臺路線示意圖，含夜間路段與各接力點標示">
           <defs>
             <linearGradient id="dayNight" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%"   stop-color="var(--dawn)"/>
@@ -280,30 +280,75 @@
             </linearGradient>
           </defs>
 
-          <!-- highlighted race corridor -->
-          <path id="routePath" d="M300,430 C550,370 750,300 950,340 C1150,380 1400,300 1600,460"
-                fill="none" stroke="url(#dayNight)" stroke-width="9" stroke-linecap="round"/>
+          <!-- race corridor: plotted through the 30 official relay-point coordinates (x = cumulative distance, y = longitude projection) -->
+          <path id="routePath" d="M110,214 L160.8,209 L211.1,188 L260.6,194 L313.0,175 L347.1,170 L395.0,182 L453.9,202 L497.1,220 L545.8,245 L746.9,273 L795.2,270 L850.9,259 L889.1,283 L931.7,331 L986.3,357 L1035.3,371 L1083.6,388 L1133.3,404 L1186.0,421 L1239.4,427 L1294.7,434 L1347.4,454 L1398.3,468 L1449.1,484 L1507.8,500 L1560.3,518 L1607.3,530 L1655.7,529 L1723.0,512 L1772.3,518 L1800.0,503"
+                fill="none" stroke="url(#dayNight)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- plain relay points (dots only, hover for detail) -->
+          <g fill="var(--ink-soft)" opacity="0.55">
+            <circle cx="160.8" cy="209" r="3.2"><title>第1棒接力區・累計8.0km</title></circle>
+            <circle cx="260.6" cy="194" r="3.2"><title>第3棒接力區・累計23.7km</title></circle>
+            <circle cx="313.0" cy="175" r="3.2"><title>第4棒接力區・累計32.1km</title></circle>
+            <circle cx="395.0" cy="182" r="3.2"><title>第6棒接力區・累計45.0km</title></circle>
+            <circle cx="497.1" cy="220" r="3.2"><title>第8棒接力區・累計60.9km</title></circle>
+            <circle cx="545.8" cy="245" r="3.2"><title>第9棒接力區（上車區）・累計68.6km</title></circle>
+            <circle cx="850.9" cy="259" r="3.2"><title>第11棒接力區・累計116.6km</title></circle>
+            <circle cx="889.1" cy="283" r="3.2"><title>第12棒接力區・累計122.6km</title></circle>
+            <circle cx="931.7" cy="331" r="3.2"><title>第13棒接力區・累計129.3km</title></circle>
+            <circle cx="986.3" cy="357" r="3.2"><title>第14棒接力區・累計137.9km</title></circle>
+            <circle cx="1133.3" cy="404" r="3.2"><title>第17棒接力區・累計161.0km</title></circle>
+            <circle cx="1186.0" cy="421" r="3.2"><title>第18棒接力區・累計169.3km</title></circle>
+            <circle cx="1239.4" cy="427" r="3.2"><title>第19棒接力區・累計177.7km</title></circle>
+            <circle cx="1347.4" cy="454" r="3.2"><title>第21棒接力區・累計194.7km</title></circle>
+            <circle cx="1398.3" cy="468" r="3.2"><title>第22棒接力區・累計202.7km</title></circle>
+            <circle cx="1449.1" cy="484" r="3.2"><title>第23棒接力區・累計210.7km</title></circle>
+            <circle cx="1507.8" cy="500" r="3.2"><title>第24棒接力區・累計219.9km</title></circle>
+            <circle cx="1607.3" cy="530" r="3.2"><title>第26棒接力區・累計235.6km</title></circle>
+            <circle cx="1655.7" cy="529" r="3.2"><title>第27棒接力區・累計243.2km</title></circle>
+            <circle cx="1723.0" cy="512" r="3.2"><title>第28棒接力區・累計253.8km</title></circle>
+            <circle cx="1772.3" cy="518" r="3.2"><title>第29棒接力區・累計261.5km</title></circle>
+          </g>
+
+          <!-- 難中之王 CP2 -->
+          <circle cx="211.1" cy="188" r="5.5" fill="var(--warn)"><title>第2棒接力區・難中之王（極難）・累計15.9km</title></circle>
+          <text x="211.1" y="170" font-size="13" fill="var(--warn)" font-weight="700" text-anchor="middle">難中之王</text>
+
+          <!-- 第7棒山路 -->
+          <circle cx="453.9" cy="202" r="4.5" fill="var(--warn)"><title>第7棒接力區・山路注意・累計54.1km</title></circle>
+
+          <!-- 汽車接力點 CP5/10/15/20/25：可換人補給 -->
+          <g fill="var(--sun)">
+            <rect x="341.6" y="164.5" width="11" height="11" transform="rotate(45 347.1 170)"><title>汽車接力點CP5・關門09/19 12:30</title></rect>
+            <text x="347.1" y="152" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP5</text>
+            <rect x="789.7" y="264.5" width="11" height="11" transform="rotate(45 795.2 270)"><title>汽車接力點CP10・關門09/19 17:30</title></rect>
+            <text x="795.2" y="252" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP10</text>
+            <rect x="1029.8" y="365.5" width="11" height="11" transform="rotate(45 1035.3 371)"><title>汽車接力點CP15・關門09/19 22:00</title></rect>
+            <text x="1035.3" y="353" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP15</text>
+            <rect x="1289.2" y="428.5" width="11" height="11" transform="rotate(45 1294.7 434)"><title>汽車接力點CP20・開門01:10／關門03:10</title></rect>
+            <text x="1294.7" y="416" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP20</text>
+            <rect x="1554.8" y="512.5" width="11" height="11" transform="rotate(45 1560.3 518)"><title>汽車接力點CP25・關門09/20 07:10</title></rect>
+            <text x="1560.3" y="500" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP25</text>
+          </g>
+
+          <!-- 台中市區乘車段 -->
+          <rect x="741.9" y="268" width="10" height="10" fill="var(--pending)"><title>台中市區乘車段起點（第9棒下車處）・約31.6km・累計100.2km</title></rect>
+          <text x="746.9" y="291" font-size="12" fill="var(--pending)" font-weight="700" text-anchor="middle">台中市區乘車 31.6km</text>
 
           <!-- start cluster -->
-          <circle cx="300" cy="430" r="10" fill="var(--dawn)"/>
-          <text x="300" y="375" class="wp-label" text-anchor="middle">起點：苗栗三義</text>
-          <text x="300" y="400" class="wp-sub" text-anchor="middle">西湖渡假村・三義火車站・西湖老街・鯉魚潭</text>
-          <text x="300" y="475" class="wp-km" text-anchor="middle">0 km</text>
-
-          <!-- 彰化 -->
-          <circle cx="950" cy="340" r="8" fill="var(--paper-raise)" stroke="var(--ink-soft)" stroke-width="2.5"/>
-          <text x="950" y="285" class="wp-label" text-anchor="middle">彰化</text>
-          <text x="950" y="385" class="wp-km" text-anchor="middle">中繼站</text>
+          <circle cx="110" cy="214" r="9" fill="var(--dawn)"/>
+          <text x="110" y="159" class="wp-label" text-anchor="middle">起點：苗栗三義</text>
+          <text x="110" y="184" class="wp-sub" text-anchor="middle">西湖渡假村（實際起跑點）</text>
+          <text x="110" y="259" class="wp-km" text-anchor="middle">0 km</text>
 
           <!-- 台南 finish -->
-          <circle cx="1600" cy="460" r="10" fill="var(--sun)"/>
-          <text x="1600" y="405" class="wp-label" text-anchor="middle">終點：台南</text>
-          <text x="1600" y="429" class="wp-sub" text-anchor="middle">林默娘公園</text>
-          <text x="1600" y="505" class="wp-km" text-anchor="middle">265.9 km</text>
+          <circle cx="1800" cy="503" r="9" fill="var(--sun)"><title>終點・第30棒接力區・累計265.9km</title></circle>
+          <text x="1800" y="448" class="wp-label" text-anchor="middle">終點：台南</text>
+          <text x="1800" y="473" class="wp-sub" text-anchor="middle">觀夕平臺</text>
+          <text x="1800" y="548" class="wp-km" text-anchor="middle">265.9 km</text>
 
           <!-- traveling sun marker -->
-          <circle r="14" fill="var(--sun)">
-            <animateMotion id="sunMotion" dur="10s" repeatCount="indefinite">
+          <circle r="13" fill="var(--sun)">
+            <animateMotion id="sunMotion" dur="14s" repeatCount="indefinite">
               <mpath href="#routePath"/>
             </animateMotion>
           </circle>
@@ -313,7 +358,13 @@
         <span><i style="background:var(--dawn)"></i>日間路段</span>
         <span><i style="background:var(--night)"></i>夜間路段（強制照明／反光裝備）</span>
         <span><i style="background:var(--sun)"></i>追日進度（自動循環播放）</span>
+        <span><i style="background:var(--sun); border-radius:2px; transform:rotate(45deg)"></i>汽車接力點（CP5/10/15/20/25，可換人補給）</span>
+        <span><i style="background:var(--pending); border-radius:2px"></i>台中市區乘車段</span>
+        <span><i style="background:var(--warn)"></i>高難度棒次</span>
       </div>
+      <p class="section-note" style="margin-top:10px; margin-bottom:0;">
+        座標依大會逐棒次電子路線圖投影繪製（x軸＝沿途累計公里數，y軸＝經度換算，示意相對位置與彎繞方向，非等比例地形圖）；滑鼠移到路徑上的點可看該棒次累計公里數。灰點無標籤者為一般接力點，詳細座標見下方棒次表。
+      </p>
     </div>
   </section>
 
