@@ -336,9 +336,9 @@
         </button>
       </div>
       <div class="route-svg-wrap">
-        <svg id="routeSvg" viewBox="0 0 1920 700" role="img" aria-label="依30個接力區官方GPS座標投影繪製的苗栗三義到台南觀夕平臺路線示意圖，含夜間路段與各接力點標示">
+        <svg id="routeSvg" viewBox="0 0 640 1171" role="img" aria-label="依30個接力區官方GPS座標，投影在台灣本島實際輪廓上的苗栗三義到台南觀夕平臺路線地圖，含夜間路段與各接力點標示">
           <defs>
-            <linearGradient id="dayNight" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id="dayNight" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%"   stop-color="var(--dawn)"/>
               <stop offset="18%"  stop-color="var(--dawn)"/>
               <stop offset="30%"  stop-color="var(--night)"/>
@@ -348,74 +348,85 @@
             </linearGradient>
           </defs>
 
-          <!-- race corridor: plotted through the 30 official relay-point coordinates (x = cumulative distance, y = longitude projection) -->
-          <path id="routePath" d="M110,214 L160.8,209 L211.1,188 L260.6,194 L313.0,175 L347.1,170 L395.0,182 L453.9,202 L497.1,220 L545.8,245 L746.9,273 L795.2,270 L850.9,259 L889.1,283 L931.7,331 L986.3,357 L1035.3,371 L1083.6,388 L1133.3,404 L1186.0,421 L1239.4,427 L1294.7,434 L1347.4,454 L1398.3,468 L1449.1,484 L1507.8,500 L1560.3,518 L1607.3,530 L1655.7,529 L1723.0,512 L1772.3,518 L1800.0,503"
-                fill="none" stroke="url(#dayNight)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- 台灣本島輪廓（Natural Earth 10m 簡化座標，等距圓柱投影＋緯度餘弦修正比例） -->
+          <path d="M587.6,134.3 L565.9,160.5 L562.5,166.0 L559.8,173.8 L558.0,182.6 L557.4,191.4 L557.7,199.9 L561.5,217.7 L561.3,222.3 L559.7,226.8 L559.9,236.2 L563.9,243.3 L571.4,248.0 L580.3,249.6 L580.3,251.7 L576.5,251.3 L572.9,251.6 L569.9,252.6 L567.8,254.1 L570.8,259.9 L572.4,267.4 L571.4,273.9 L564.5,277.8 L564.0,280.7 L564.9,284.1 L566.8,287.2 L567.5,290.4 L564.6,293.2 L557.4,297.3 L549.2,306.6 L549.0,310.3 L549.5,318.3 L548.1,321.4 L546.6,324.0 L545.7,327.7 L545.1,335.1 L544.4,336.9 L543.3,338.5 L542.7,340.1 L543.9,342.0 L544.1,342.2 L544.9,343.1 L546.0,344.8 L546.8,346.5 L547.0,347.8 L545.4,350.5 L538.6,357.1 L531.3,367.1 L526.0,371.4 L524.3,373.6 L525.1,376.1 L524.1,377.8 L516.4,383.6 L513.5,386.4 L510.2,393.4 L506.9,407.5 L498.3,420.1 L496.6,425.1 L496.8,430.6 L498.9,436.7 L500.6,439.2 L502.1,440.4 L503.1,442.0 L503.2,445.8 L501.9,449.9 L497.7,456.6 L496.8,460.6 L496.3,468.0 L492.6,486.9 L485.2,506.7 L475.9,553.0 L470.3,564.4 L457.5,638.8 L452.2,669.5 L449.6,675.2 L441.4,686.1 L438.4,691.8 L436.0,699.0 L434.3,712.2 L434.4,724.1 L433.3,735.3 L427.6,746.9 L425.2,749.4 L419.7,753.5 L417.2,756.0 L416.0,758.7 L414.1,765.4 L408.5,775.3 L405.1,790.5 L402.6,797.4 L390.7,814.6 L389.2,817.8 L373.1,831.5 L369.2,836.0 L368.7,839.1 L369.4,846.4 L369.2,849.6 L367.8,853.4 L365.3,857.5 L359.8,864.5 L354.3,869.8 L335.7,882.3 L323.1,896.2 L320.0,897.8 L317.6,901.0 L311.5,916.7 L308.5,922.6 L299.2,934.4 L295.4,941.3 L293.2,955.7 L287.6,975.3 L276.6,994.9 L275.0,1001.6 L273.0,1020.5 L273.3,1037.6 L274.3,1098.2 L272.5,1106.8 L269.6,1113.8 L265.7,1116.7 L261.0,1121.0 L261.2,1130.9 L262.8,1141.6 L262.5,1148.5 L257.2,1140.6 L249.3,1134.5 L240.2,1130.3 L231.0,1128.1 L230.6,1135.8 L228.0,1138.6 L224.0,1137.6 L219.7,1134.0 L219.5,1131.2 L221.0,1123.0 L214.5,1112.2 L214.0,1109.3 L214.1,1106.9 L214.5,1103.1 L214.5,1090.5 L215.2,1086.8 L218.1,1082.6 L218.7,1079.1 L195.6,1018.5 L193.7,1015.2 L187.3,1007.2 L182.2,995.6 L179.9,992.3 L170.4,984.8 L166.6,982.6 L165.4,982.1 L164.1,981.3 L163.0,976.9 L162.2,975.3 L157.2,972.0 L145.5,966.4 L140.3,962.7 L134.7,957.8 L132.1,956.2 L128.7,954.7 L126.9,954.8 L124.7,955.6 L122.2,955.6 L107.1,943.7 L93.0,923.6 L107.8,941.6 L106.1,933.1 L103.6,928.3 L101.7,924.6 L95.5,917.5 L85.0,907.8 L81.0,902.8 L79.1,897.3 L81.6,891.9 L82.9,887.1 L81.2,880.4 L78.1,873.7 L72.4,864.8 L67.0,852.9 L65.8,847.6 L66.0,844.2 L67.7,840.0 L68.1,837.2 L67.4,835.7 L66.0,834.6 L64.4,833.0 L63.7,830.3 L60.5,824.6 L59.6,822.4 L57.1,806.4 L56.0,799.1 L53.9,794.9 L49.4,790.3 L54.9,786.4 L58.0,779.3 L56.7,773.2 L49.4,772.1 L48.0,774.3 L46.7,778.2 L44.7,781.4 L40.8,781.2 L39.3,778.6 L39.9,770.4 L38.9,767.6 L34.2,765.5 L31.6,767.9 L29.4,771.3 L26.2,772.1 L22.8,769.2 L22.0,765.2 L22.8,761.2 L24.1,758.5 L27.5,756.7 L31.9,756.1 L35.4,755.0 L36.7,751.5 L35.0,749.6 L24.1,746.9 L24.1,744.6 L33.2,744.5 L32.3,741.5 L27.4,737.2 L24.1,733.5 L24.9,728.8 L27.8,727.1 L31.0,726.1 L32.5,723.1 L31.6,718.6 L30.0,714.8 L31.1,711.4 L32.7,707.1 L35.3,704.0 L34.8,701.3 L35.3,698.7 L39.2,688.3 L41.1,686.3 L44.1,685.5 L39.7,682.6 L41.6,677.9 L46.0,677.6 L49.8,675.9 L51.5,676.4 L50.5,672.8 L47.9,674.6 L45.8,674.1 L42.9,673.9 L42.9,670.1 L45.7,663.6 L50.0,663.3 L56.2,663.3 L52.0,651.2 L47.1,641.8 L49.4,637.6 L49.4,635.3 L45.8,633.6 L46.3,631.6 L48.3,629.2 L49.4,626.2 L54.1,620.1 L44.2,620.7 L43.9,610.6 L49.2,604.6 L49.0,585.5 L49.8,571.3 L53.1,559.9 L58.1,551.0 L59.6,539.4 L62.3,529.2 L63.7,525.7 L70.9,516.3 L72.1,513.1 L73.0,511.4 L79.5,506.4 L81.3,502.9 L83.2,494.7 L84.6,491.2 L92.8,483.4 L95.2,480.1 L98.3,471.1 L103.1,462.1 L109.8,443.5 L112.9,438.1 L116.4,434.6 L119.3,432.6 L121.8,431.4 L123.7,429.7 L124.4,426.3 L125.7,423.1 L131.7,418.5 L133.1,414.9 L133.8,403.3 L134.8,400.1 L137.9,397.1 L151.1,381.8 L151.8,380.9 L152.7,377.1 L156.5,373.9 L159.1,366.5 L162.2,352.3 L173.0,333.7 L176.3,322.2 L180.2,315.9 L195.6,298.9 L204.0,289.6 L206.2,284.9 L207.2,277.3 L209.8,270.9 L216.6,258.9 L218.5,251.7 L220.3,248.6 L228.1,246.3 L230.3,243.9 L231.7,240.8 L233.3,238.0 L238.1,233.0 L243.5,229.0 L249.9,227.3 L258.3,228.9 L257.2,222.6 L260.3,218.3 L264.6,214.0 L266.8,207.4 L267.7,205.3 L271.9,203.2 L273.6,197.0 L280.1,183.9 L282.6,180.5 L283.5,178.7 L283.4,176.7 L282.6,174.6 L281.4,172.1 L283.1,168.6 L285.1,166.5 L285.2,166.4 L286.9,163.9 L287.6,159.5 L288.6,156.1 L291.0,152.8 L294.1,150.3 L297.0,149.3 L296.8,147.9 L297.5,144.6 L300.2,137.6 L302.5,133.8 L312.9,117.5 L320.9,108.0 L329.3,101.0 L350.7,94.0 L355.7,90.9 L360.0,87.2 L365.2,84.4 L375.6,80.7 L398.9,76.5 L412.0,74.2 L417.5,72.1 L424.6,66.2 L426.8,65.1 L429.4,64.7 L432.9,64.6 L437.0,65.9 L439.2,69.0 L440.6,72.1 L442.4,73.9 L446.4,72.3 L442.2,65.8 L435.5,59.0 L432.0,56.8 L433.0,53.7 L435.1,52.0 L437.3,51.0 L438.2,49.9 L440.6,44.0 L444.3,37.3 L452.0,30.5 L463.1,24.9 L475.9,22.0 L488.4,23.5 L493.6,27.3 L505.3,43.5 L509.4,52.1 L510.8,51.5 L513.9,50.7 L517.5,50.3 L520.0,50.9 L519.9,52.0 L518.7,53.4 L517.5,55.5 L517.6,58.0 L518.9,59.4 L523.2,62.4 L524.0,63.6 L526.0,65.5 L530.5,67.1 L583.7,79.9 L587.4,82.2 L585.5,86.4 L585.0,89.8 L585.8,95.7 L588.6,105.7 L591.7,110.4 L594.2,111.5 L602.3,110.3 L606.5,110.7 L611.3,112.0 L615.7,114.2 L618.0,117.1 L594.0,128.8 L587.6,134.3 Z" fill="color-mix(in srgb, var(--ink) 6%, transparent)" stroke="var(--line)" stroke-width="1.2"/>
+
+          <!-- 指北方向 -->
+          <g stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round">
+            <line x1="600" y1="34" x2="600" y2="16"/>
+            <path d="M595,22 L600,14 L605,22" fill="none"/>
+          </g>
+          <text x="600" y="48" font-size="10" fill="var(--ink-soft)" text-anchor="middle" font-weight="700">N</text>
+
+          <!-- race corridor: plotted through the 30 official relay-point coordinates, real GPS 投影 -->
+          <path id="routePath" d="M238.5,321.0 L239.5,335.5 L253.0,339.9 L249.1,354.4 L261.2,373.3 L264.3,387.3 L256.5,390.9 L244.2,401.4 L232.9,407.1 L216.9,419.6 L200.9,480.1 L207.5,516.4 L192.5,517.5 L161.9,501.9 L145.5,493.1 L136.6,499.0 L125.6,514.2 L115.8,532.8 L105.1,552.1 L100.8,574.8 L96.4,598.7 L83.9,615.5 L75.1,636.8 L65.1,656.2 L54.6,675.2 L43.4,695.6 L35.7,713.2 L36.6,733.0 L47.3,757.1 L43.5,777.7 L52.7,785.7"
+                fill="none" stroke="url(#dayNight)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
 
           <!-- plain relay points (dots only, hover for detail) -->
-          <g fill="var(--ink-soft)" opacity="0.55">
-            <circle cx="160.8" cy="209" r="3.2"><title>第1棒接力區・累計8.0km</title></circle>
-            <circle cx="260.6" cy="194" r="3.2"><title>第3棒接力區・累計23.7km</title></circle>
-            <circle cx="313.0" cy="175" r="3.2"><title>第4棒接力區・累計32.1km</title></circle>
-            <circle cx="395.0" cy="182" r="3.2"><title>第6棒接力區・累計45.0km</title></circle>
-            <circle cx="497.1" cy="220" r="3.2"><title>第8棒接力區・累計60.9km</title></circle>
-            <circle cx="545.8" cy="245" r="3.2"><title>第9棒接力區（上車區）・累計68.6km</title></circle>
-            <circle cx="850.9" cy="259" r="3.2"><title>第11棒接力區・累計116.6km</title></circle>
-            <circle cx="889.1" cy="283" r="3.2"><title>第12棒接力區・累計122.6km</title></circle>
-            <circle cx="931.7" cy="331" r="3.2"><title>第13棒接力區・累計129.3km</title></circle>
-            <circle cx="986.3" cy="357" r="3.2"><title>第14棒接力區・累計137.9km</title></circle>
-            <circle cx="1133.3" cy="404" r="3.2"><title>第17棒接力區・累計161.0km</title></circle>
-            <circle cx="1186.0" cy="421" r="3.2"><title>第18棒接力區・累計169.3km</title></circle>
-            <circle cx="1239.4" cy="427" r="3.2"><title>第19棒接力區・累計177.7km</title></circle>
-            <circle cx="1347.4" cy="454" r="3.2"><title>第21棒接力區・累計194.7km</title></circle>
-            <circle cx="1398.3" cy="468" r="3.2"><title>第22棒接力區・累計202.7km</title></circle>
-            <circle cx="1449.1" cy="484" r="3.2"><title>第23棒接力區・累計210.7km</title></circle>
-            <circle cx="1507.8" cy="500" r="3.2"><title>第24棒接力區・累計219.9km</title></circle>
-            <circle cx="1607.3" cy="530" r="3.2"><title>第26棒接力區・累計235.6km</title></circle>
-            <circle cx="1655.7" cy="529" r="3.2"><title>第27棒接力區・累計243.2km</title></circle>
-            <circle cx="1723.0" cy="512" r="3.2"><title>第28棒接力區・累計253.8km</title></circle>
-            <circle cx="1772.3" cy="518" r="3.2"><title>第29棒接力區・累計261.5km</title></circle>
+          <g fill="var(--ink-soft)" opacity="0.6">
+            <circle cx="239.5" cy="335.5" r="2.2"><title>第1棒接力區・累計8.0km</title></circle>
+            <circle cx="249.1" cy="354.4" r="2.2"><title>第3棒接力區・累計23.7km</title></circle>
+            <circle cx="261.2" cy="373.3" r="2.2"><title>第4棒接力區・累計32.1km</title></circle>
+            <circle cx="256.5" cy="390.9" r="2.2"><title>第6棒接力區・累計45.0km</title></circle>
+            <circle cx="232.9" cy="407.1" r="2.2"><title>第8棒接力區・累計60.9km</title></circle>
+            <circle cx="216.9" cy="419.6" r="2.2"><title>第9棒接力區（上車區）・累計68.6km</title></circle>
+            <circle cx="207.5" cy="516.4" r="2.2"><title>第11棒接力區・累計116.6km</title></circle>
+            <circle cx="192.5" cy="517.5" r="2.2"><title>第12棒接力區・累計122.6km</title></circle>
+            <circle cx="161.9" cy="501.9" r="2.2"><title>第13棒接力區・累計129.3km</title></circle>
+            <circle cx="145.5" cy="493.1" r="2.2"><title>第14棒接力區・累計137.9km</title></circle>
+            <circle cx="125.6" cy="514.2" r="2.2"><title>第16棒接力區・累計153.2km</title></circle>
+            <circle cx="115.8" cy="532.8" r="2.2"><title>第17棒接力區・累計161.0km</title></circle>
+            <circle cx="105.1" cy="552.1" r="2.2"><title>第18棒接力區・累計169.3km</title></circle>
+            <circle cx="100.8" cy="574.8" r="2.2"><title>第19棒接力區・累計177.7km</title></circle>
+            <circle cx="83.9" cy="615.5" r="2.2"><title>第21棒接力區・累計194.7km</title></circle>
+            <circle cx="75.1" cy="636.8" r="2.2"><title>第22棒接力區・累計202.7km</title></circle>
+            <circle cx="65.1" cy="656.2" r="2.2"><title>第23棒接力區・累計210.7km</title></circle>
+            <circle cx="54.6" cy="675.2" r="2.2"><title>第24棒接力區・累計219.9km</title></circle>
+            <circle cx="35.7" cy="713.2" r="2.2"><title>第26棒接力區・累計235.6km</title></circle>
+            <circle cx="36.6" cy="733.0" r="2.2"><title>第27棒接力區・累計243.2km</title></circle>
+            <circle cx="47.3" cy="757.1" r="2.2"><title>第28棒接力區・累計253.8km</title></circle>
+            <circle cx="43.5" cy="777.7" r="2.2"><title>第29棒接力區・累計261.5km</title></circle>
           </g>
 
-          <!-- 難中之王 CP2 -->
-          <circle cx="211.1" cy="188" r="5.5" fill="var(--warn)"><title>第2棒接力區・難中之王（極難）・累計15.9km</title></circle>
-          <text x="211.1" y="170" font-size="13" fill="var(--warn)" font-weight="700" text-anchor="middle">難中之王</text>
+          <!-- 難中之王 leg2 -->
+          <circle cx="253.0" cy="339.9" r="3.5" fill="var(--warn)"><title>第2棒接力區・難中之王（極難）・累計15.9km</title></circle>
+          <text x="255.0" y="331.9" font-size="9" fill="var(--warn)" font-weight="700" text-anchor="start">難中之王</text>
 
           <!-- 第7棒山路 -->
-          <circle cx="453.9" cy="202" r="4.5" fill="var(--warn)"><title>第7棒接力區・山路注意・累計54.1km</title></circle>
+          <circle cx="244.2" cy="401.4" r="3" fill="var(--warn)"><title>第7棒接力區・山路注意・累計54.1km</title></circle>
 
           <!-- 汽車接力點 CP5/10/15/20/25：可換人補給 -->
           <g fill="var(--sun)">
-            <rect x="341.6" y="164.5" width="11" height="11" transform="rotate(45 347.1 170)"><title>汽車接力點CP5・關門09/19 12:30</title></rect>
-            <text x="347.1" y="152" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP5</text>
-            <rect x="789.7" y="264.5" width="11" height="11" transform="rotate(45 795.2 270)"><title>汽車接力點CP10・關門09/19 17:30</title></rect>
-            <text x="795.2" y="252" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP10</text>
-            <rect x="1029.8" y="365.5" width="11" height="11" transform="rotate(45 1035.3 371)"><title>汽車接力點CP15・關門09/19 22:00</title></rect>
-            <text x="1035.3" y="353" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP15</text>
-            <rect x="1289.2" y="428.5" width="11" height="11" transform="rotate(45 1294.7 434)"><title>汽車接力點CP20・開門01:10／關門03:10</title></rect>
-            <text x="1294.7" y="416" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP20</text>
-            <rect x="1554.8" y="512.5" width="11" height="11" transform="rotate(45 1560.3 518)"><title>汽車接力點CP25・關門09/20 07:10</title></rect>
-            <text x="1560.3" y="500" font-size="12" fill="var(--sun)" font-weight="700" text-anchor="middle">CP25</text>
+            <rect x="260.8" y="383.8" width="7" height="7" transform="rotate(45 264.3 387.3)"><title>汽車接力點CP5・關門09/19 12:30</title></rect>
+            <text x="264.3" y="378.3" font-size="8" fill="var(--sun)" font-weight="700" text-anchor="middle">CP5</text>
+            <rect x="197.4" y="476.6" width="7" height="7" transform="rotate(45 200.9 480.1)"><title>汽車接力點CP10・關門09/19 17:30</title></rect>
+            <text x="200.9" y="471.1" font-size="8" fill="var(--sun)" font-weight="700" text-anchor="middle">CP10</text>
+            <rect x="133.1" y="495.5" width="7" height="7" transform="rotate(45 136.6 499.0)"><title>汽車接力點CP15・關門09/19 22:00</title></rect>
+            <text x="136.6" y="490.0" font-size="8" fill="var(--sun)" font-weight="700" text-anchor="middle">CP15</text>
+            <rect x="92.9" y="595.2" width="7" height="7" transform="rotate(45 96.4 598.7)"><title>汽車接力點CP20・開門01:10／關門03:10</title></rect>
+            <text x="96.4" y="589.7" font-size="8" fill="var(--sun)" font-weight="700" text-anchor="middle">CP20</text>
+            <rect x="39.9" y="692.1" width="7" height="7" transform="rotate(45 43.4 695.6)"><title>汽車接力點CP25・關門09/20 07:10</title></rect>
+            <text x="43.4" y="686.6" font-size="8" fill="var(--sun)" font-weight="700" text-anchor="middle">CP25</text>
           </g>
 
-          <!-- 台中市區乘車段 -->
-          <rect x="741.9" y="268" width="10" height="10" fill="var(--pending)"><title>台中市區乘車段起點（第9棒下車處）・約31.6km・累計100.2km</title></rect>
-          <text x="746.9" y="291" font-size="12" fill="var(--pending)" font-weight="700" text-anchor="middle">台中市區乘車 31.6km</text>
+          <!-- 台中市區乘車段：第9棒→第10棒改乘車約31.6km -->
+          <rect x="213.70000000000002" y="416.40000000000003" width="6.5" height="6.5" fill="var(--pending)"><title>台中市區乘車段起點（第9棒下車處）・約31.6km・累計68.6km</title></rect>
+          <text x="226.9" y="422.6" font-size="8" fill="var(--pending)" font-weight="700" text-anchor="start">乘車31.6km</text>
 
           <!-- start cluster -->
-          <circle cx="110" cy="214" r="9" fill="var(--dawn)"/>
-          <text x="110" y="159" class="wp-label" text-anchor="middle">起點：苗栗三義</text>
-          <text x="110" y="184" class="wp-sub" text-anchor="middle">西湖渡假村（實際起跑點）</text>
-          <text x="110" y="259" class="wp-km" text-anchor="middle">0 km</text>
+          <circle cx="238.5" cy="321.0" r="6" fill="var(--dawn)"/>
+          <text x="228.5" y="309.0" class="wp-label" text-anchor="end">起點：苗栗三義</text>
+          <text x="228.5" y="323.0" class="wp-sub" text-anchor="end">西湖渡假村（實際起跑點）</text>
+          <text x="228.5" y="337.0" class="wp-km" text-anchor="end">0 km</text>
 
           <!-- 台南 finish -->
-          <circle cx="1800" cy="503" r="9" fill="var(--sun)"><title>終點・第30棒接力區・累計265.9km</title></circle>
-          <text x="1800" y="448" class="wp-label" text-anchor="middle">終點：台南</text>
-          <text x="1800" y="473" class="wp-sub" text-anchor="middle">觀夕平臺</text>
-          <text x="1800" y="548" class="wp-km" text-anchor="middle">265.9 km</text>
+          <circle cx="52.7" cy="785.7" r="6" fill="var(--sun)"><title>終點・第30棒接力區・累計265.9km</title></circle>
+          <text x="62.7" y="781.7" class="wp-label" text-anchor="start">終點：台南</text>
+          <text x="62.7" y="795.7" class="wp-sub" text-anchor="start">觀夕平臺</text>
+          <text x="62.7" y="809.7" class="wp-km" text-anchor="start">265.9 km</text>
 
           <!-- traveling sun marker -->
-          <circle r="13" fill="var(--sun)">
+          <circle r="8" fill="var(--sun)">
             <animateMotion id="sunMotion" dur="14s" repeatCount="indefinite">
               <mpath href="#routePath"/>
             </animateMotion>
