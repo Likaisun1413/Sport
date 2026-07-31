@@ -123,8 +123,24 @@
   .stat .l { font-size: 0.74rem; color: var(--ink-soft); margin-top: 2px; }
 
   section { padding-top: 52px; scroll-margin-top: 64px; }
-  h2 { font-size: 1.3rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  h2 { display: flex; align-items: center; gap: 10px; font-size: 1.3rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .h-icon {
+    flex: none; width: 30px; height: 30px; border-radius: 9px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: color-mix(in srgb, var(--sun) 16%, transparent); color: var(--sun);
+  }
+  .h-icon svg { width: 17px; height: 17px; }
   .section-note { color: var(--ink-soft); font-size: 0.88rem; margin: 0 0 20px; max-width: 62ch; }
+
+  .photo-bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 110px; gap: 14px; }
+  .photo-bento figure { grid-column: span 2; grid-row: span 2; }
+  .photo-bento figure.feature { grid-column: span 4; grid-row: span 3; }
+  .photo-bento figure.feature img { height: 100% !important; }
+  @media (max-width: 640px) {
+    .photo-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 90px; }
+    .photo-bento figure { grid-column: span 2; grid-row: span 2; }
+    .photo-bento figure.feature { grid-row: span 3; }
+  }
 
   .route-card {
     background: var(--paper-raise); border: 1px solid var(--line); border-radius: 16px;
