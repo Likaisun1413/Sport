@@ -170,7 +170,8 @@
   .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
 
-  .car-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .car-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 560px) { .car-grid { grid-template-columns: 1fr; } }
   .car-card { background: var(--paper-raise); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; border-top: 3px solid var(--team-color, var(--sun)); }
   .car-card.b { --team-color: var(--night); }
   .car-card.a { --team-color: var(--sun); }
